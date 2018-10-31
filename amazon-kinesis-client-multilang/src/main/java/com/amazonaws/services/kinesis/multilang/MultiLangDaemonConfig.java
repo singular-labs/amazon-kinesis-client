@@ -113,10 +113,10 @@ public class MultiLangDaemonConfig {
         java.security.Security.setProperty("networkaddress.cache.ttl", "60");
 
         log.info("Using workerId: {}", kinesisClientLibConfig.getWorkerIdentifier());
-        log.info("Using credentials with access key id: {}",
-                kinesisClientLibConfig.getKinesisCredentialsProvider().resolveCredentials().accessKeyId());
 
         StringBuilder userAgent = new StringBuilder(RetrievalConfig.KINESIS_CLIENT_LIB_USER_AGENT);
+        userAgent.append("/");
+        userAgent.append(RetrievalConfig.KINESIS_CLIENT_LIB_USER_AGENT_VERSION);
         userAgent.append(" ");
         userAgent.append(USER_AGENT);
         userAgent.append("/");
@@ -132,7 +132,7 @@ public class MultiLangDaemonConfig {
             userAgent.append(recordProcessorFactory.getCommandArray()[0]);
         }
 
-        log.info("MultiLangDaemon is adding the following fields to the User Agent: {}", userAgent.toString());
+        log.info("MultiLangDaemon is adding the following fields to the User AgentX: {}", userAgent.toString());
         kinesisClientLibConfig.withUserAgent(userAgent.toString());
     }
 

@@ -136,7 +136,7 @@ public class KinesisClientLibConfiguration {
     /**
      * User agent set when Amazon Kinesis Client Library makes AWS requests.
      */
-    public static final String KINESIS_CLIENT_LIB_USER_AGENT = "amazon-kinesis-client-library-java-1.9.0";
+    public static final String KINESIS_CLIENT_LIB_USER_AGENT = "amazon-kinesis-client-library-java-2.0.4";
 
     /**
      * KCL will validate client provided sequence numbers with a call to Amazon Kinesis before checkpointing for calls
@@ -485,6 +485,7 @@ public class KinesisClientLibConfiguration {
         this.skipShardSyncAtWorkerInitializationIfLeasesExist = DEFAULT_SKIP_SHARD_SYNC_AT_STARTUP_IF_LEASES_EXIST;
         this.shardPrioritization = DEFAULT_SHARD_PRIORITIZATION;
         this.recordsFetcherFactory = new SimpleRecordsFetcherFactory();
+        this.shutdownGraceMillis = shutdownGraceMillis;
     }
 
     /**
@@ -593,7 +594,6 @@ public class KinesisClientLibConfiguration {
         this.skipShardSyncAtWorkerInitializationIfLeasesExist = DEFAULT_SKIP_SHARD_SYNC_AT_STARTUP_IF_LEASES_EXIST;
         this.shardPrioritization = DEFAULT_SHARD_PRIORITIZATION;
         this.recordsFetcherFactory = recordsFetcherFactory;
-        this.shutdownGraceMillis = shutdownGraceMillis;
     }
 
     // Check if value is positive, otherwise throw an exception
